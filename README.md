@@ -1,4 +1,4 @@
-cms-frontend-application
+cms-installer-application
 ========================
 
-Joomla CMS Frontend Application
+Joomla CMS Installer Application
