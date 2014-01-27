@@ -1,0 +1,19 @@
+<?php
+
+namespace App\View\Overview;
+
+use App\App;
+use App\View\DefaultHtmlView;
+
+class OverviewHtmlView extends DefaultHtmlView
+{
+    public function __construct($app, $model, array $paths)
+    {
+        parent::__construct($app, $model, $paths);
+
+        $this->form 		= $this->model->getForm('summary');
+		$this->phpoptions  	= $this->model->getPhpOptions();
+		$this->phpsettings 	= $this->model->getPhpSettings();
+		$this->options     	= $this->model->getOptions();
+    }
+}
