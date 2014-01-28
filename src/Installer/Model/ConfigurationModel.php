@@ -218,8 +218,8 @@ class ConfigurationModel extends DefaultModel
 
 		/* Feed Settings */
 		$registry->set('feed_limit', 10);
-		$registry->set('log_path', dirname(JPATH_ROOT) . '/logs');
-		$registry->set('tmp_path', dirname(JPATH_ROOT) . '/tmp');
+		$registry->set('log_path', JPATH_PROJECT . '/logs');
+		$registry->set('tmp_path', JPATH_PROJECT . '/tmp');
 
 		/* Session Setting */
 		$registry->set('lifetime', 15);
@@ -229,7 +229,7 @@ class ConfigurationModel extends DefaultModel
 		$buffer = $registry->toString('PHP', array('class' => 'JConfig', 'closingtag' => false));
 
 		// Build the configuration file path.
-		$path = dirname(JPATH_ROOT) . '/configuration.php';
+		$path = JPATH_CONFIGURATION . '/configuration.php';
 
 		// Determine if the configuration file path is writable.
 		if (file_exists($path))
@@ -238,7 +238,7 @@ class ConfigurationModel extends DefaultModel
 		}
 		else
 		{
-			$canWrite = is_writable(dirname(JPATH_ROOT) . '/');
+			$canWrite = is_writable(JPATH_CONFIGURATION . '/');
 		}
 
 		/*

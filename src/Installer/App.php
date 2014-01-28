@@ -417,16 +417,25 @@ final class App extends AbstractWebApplication implements ContainerAwareInterfac
     public function getLocaliseAdmin($db = false)
     {
         // Read the files in the admin area
-        $path = Language::getLanguagePath(JPATH_ADMINISTRATOR);
-        $langfiles['admin'] = Folder::folders($path);
-        if (is_bool($langfiles['admin'])) {
+        if (!defined('JPATH_APP_ADMINISTRATOR')) {
             $langfiles['admin'] = array();
+        } else {
+            $path = Language::getLanguagePath(JPATH_APP_ADMINISTRATOR);
+            $langfiles['admin'] = Folder::folders($path);
+            if (is_bool($langfiles['admin'])) {
+                $langfiles['admin'] = array();
+            }
         }
+        
         // Read the files in the site area
-        $path = Language::getLanguagePath(JPATH_SITE);
-        $langfiles['site'] = Folder::folders($path);
-        if (is_bool($langfiles['site'])) {
+        if (!defined('JPATH_APP_FRONTEND')) {
             $langfiles['site'] = array();
+        } else {
+            $path = Language::getLanguagePath(JPATH_APP_FRONTEND);
+            $langfiles['site'] = Folder::folders($path);
+            if (is_bool($langfiles['site'])) {
+                $langfiles['site'] = array();
+            }
         }
 
         if ($db)

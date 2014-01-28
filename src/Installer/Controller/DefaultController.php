@@ -56,6 +56,11 @@ class DefaultController extends AbstractController implements ContainerAwareInte
         $vName   = $input->getWord('view', $this->defaultView);
         $vFormat = $input->getWord('format', 'html');
 
+        // check if configuration already exists
+        if (file_exists(JPATH_CONFIGURATION.'/configuration.php') && (filesize(JPATH_CONFIGURATION . '/configuration.php') > 10)) {
+            $vName = 'remove';
+        }
+
         if (is_null($input->get('layout')))
         {
             if ($task == 'view' && $input->get('id') == null)
