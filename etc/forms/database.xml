@@ -7,7 +7,7 @@
 				label="INSTL_DATABASE_TYPE_LABEL"
 				supported="Mysql,Mysqli,Postgresql,Sqlsrv,Sqlazure"
 				required="true"
-				default="mysqli"
+				default="Mysqli"
 				filter="string"
 			/>
 
