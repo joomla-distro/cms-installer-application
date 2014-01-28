@@ -6,7 +6,7 @@
 
 namespace Installer\Controller;
 
-use App\Controller\DefaultController;
+use Installer\Controller\DefaultController;
 use Joomla\Session\Session;
 
 /**
