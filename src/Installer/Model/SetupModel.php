@@ -12,6 +12,7 @@ use Installer\Model\DefaultModel;
 use Joomla\Form\Form as JForm;
 use Joomla\Form\FormHelper as JFormHelper;
 use Joomla\Database\DatabaseDriver;
+use Joomla\Language\Text as JText;
 
 /**
  * Default model for the tracker application.
