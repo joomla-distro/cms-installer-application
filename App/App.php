@@ -111,7 +111,7 @@ final class App extends AbstractWebApplication implements ContainerAwareInterfac
             // Instantiate the router
             $router = new AppRouter($this->input, $this);
 
-            $routes_path = JPATH_APP_ETC . '/routes.json';
+            $routes_path = JPATH_ROOT . '/etc/routes.json';
             if (!file_exists($routes_path)) {
                 $routes = '{}';
             } else {
@@ -129,7 +129,7 @@ final class App extends AbstractWebApplication implements ContainerAwareInterfac
             $router->setDefaultController('\\Controller\\DefaultController');
 
             $default_language = $this->getSession()->get('default.language', $this->getLanguage()->getDefault());
-            $this->getLanguage()->load('', JPATH_INSTALLATION, $default_language);
+            $this->getLanguage()->load('', JPATH_ROOT, $default_language);
             $this->getLanguage()->setLanguage($default_language);
 
             // Fetch the controller
@@ -140,9 +140,9 @@ final class App extends AbstractWebApplication implements ContainerAwareInterfac
             // render template
             $tmpl = $this->input->getCmd('tmpl', 'index');
 
-            if ($template_path = Path::find(array(JPATH_APP_TEMPLATE), $tmpl.'.php')) {
+            if ($template_path = Path::find(array(JPATH_ROOT.'/template'), $tmpl.'.php')) {
             } else {
-                $template_path = JPATH_APP_TEMPLATE.'/index.php';
+                $template_path = JPATH_ROOT.'/template/index.php';
             }
             
             if (!is_file($template_path)) {
@@ -320,7 +320,7 @@ final class App extends AbstractWebApplication implements ContainerAwareInterfac
     public function loadSession(JSession $session = null)
     {
         // Generate a session name.
-        $name = md5($this->get('secret') . $this->get('session_name', get_class($this)) . $this->get('uri.base.full') );
+        $name = md5($this->get('secret') . $this->get('session_name', get_class($this)));
 
         // Calculate the session lifetime.
         $lifetime = (($this->get('lifetime')) ? $this->get('lifetime') * 60 : 900);

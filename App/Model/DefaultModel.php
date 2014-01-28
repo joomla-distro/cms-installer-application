@@ -61,9 +61,9 @@ class DefaultModel extends AbstractModel
             $view = 'configuration';
         }
 
-        JFormHelper::addFormPath(JPATH_APP_ETC.'/forms/');
-        JFormHelper::addFieldPath(JPATH_APP_ETC.'/fields/');
-        JFormHelper::addRulePath(JPATH_APP_ETC.'/rules/');
+        JFormHelper::addFormPath(JPATH_ROOT.'/etc/forms/');
+        JFormHelper::addFieldPath(JPATH_ROOT.'/etc/fields/');
+        JFormHelper::addRulePath(JPATH_ROOT.'/etc/rules/');
 
         try
         {

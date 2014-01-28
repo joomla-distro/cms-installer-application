@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->get('default.language'); ?>" lang="<?php echo $this->get('default.language'); ?>" dir="<?php echo $this->getLanguage()->isRTL() ? 'rtl' : '' ; ?>">
 	<head>
-		<link href="<?php echo BASE_URL; ?>/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+		<link href="../../installer/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 		<link rel="stylesheet" href="../media/joomla/jui/css/bootstrap.min.css" type="text/css" />
 		<link rel="stylesheet" href="../media/joomla/jui/css/bootstrap-responsive.min.css" type="text/css" />
 		<link rel="stylesheet" href="../media/joomla/jui/css/bootstrap-extended.css" type="text/css" />
-		<link rel="stylesheet" href="<?php echo BASE_URL; ?>template/css/template.css" type="text/css" />
+		<link rel="stylesheet" href="../../installer/template/css/template.css" type="text/css" />
 		<link rel="stylesheet" href="../media/joomla/jui/css/chosen.css" type="text/css" />
 		<link rel="stylesheet" href="../media/joomla/jui/css/spinner.css" type="text/css" />
 		<script src="../media/joomla/jui/js/jquery.min.js" type="text/javascript"></script>
@@ -15,7 +15,7 @@
 		<script src="../media/joomla/jui/js/chosen.jquery.min.js" type="text/javascript"></script>
 		<script src="../media/joomla/jui/js/joomla.min.js" type="text/javascript"></script>
 		<script src="../media/joomla/jui/js/validator.min.js" type="text/javascript"></script>
-		<script src="<?php echo BASE_URL; ?>template/js/installation.js" type="text/javascript"></script>
+		<script src="../../installer/template/js/installation.js" type="text/javascript"></script>
 		<!--[if lt IE 9]>
 			<script src="../media/joomla/jui/js/html5.js"></script>
 		<![endif]-->
@@ -31,7 +31,7 @@
 	<body>
 		<!-- Header -->
 		<div class="header">
-			<img src="<?php echo BASE_URL; ?>template/images/joomla.png" alt="Joomla" />
+			<img src="../../installer/template/images/joomla.png" alt="Joomla" />
 			<hr />
 			<h5>
 				<?php
