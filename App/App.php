@@ -320,7 +320,7 @@ final class App extends AbstractWebApplication implements ContainerAwareInterfac
     public function loadSession(JSession $session = null)
     {
         // Generate a session name.
-        $name = md5($this->get('secret') . $this->get('session_name', get_class($this)));
+        $name = md5($this->get('secret') . $this->get('session_name', get_class($this)) . $this->get('uri.base.full') );
 
         // Calculate the session lifetime.
         $lifetime = (($this->get('lifetime')) ? $this->get('lifetime') * 60 : 900);
