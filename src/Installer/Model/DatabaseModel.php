@@ -44,16 +44,18 @@ class DatabaseModel extends DefaultModel
 		$currentLang = $lang->getTag();
 
 		// Load the selected language
-		if (JLanguage::exists($currentLang, JPATH_ADMINISTRATOR))
-		{
-			$lang->load('joomla', JPATH_ADMINISTRATOR, $currentLang, true);
+		if (defined('JPATH_APP_ADMINISTRATOR')) {
+			if (JLanguage::exists($currentLang, JPATH_APP_ADMINISTRATOR))
+			{
+				$lang->load('joomla', JPATH_APP_ADMINISTRATOR, $currentLang, true);
+			}
+			// Pre-load en-GB in case the chosen language files do not exist
+			else
+			{
+				$lang->load('joomla', JPATH_APP_ADMINISTRATOR, 'en-GB', true);
+			}
 		}
-		// Pre-load en-GB in case the chosen language files do not exist
-		else
-		{
-			$lang->load('joomla', JPATH_ADMINISTRATOR, 'en-GB', true);
-		}
-
+		
 		// Ensure a database type was selected.
 		if (empty($options->db_type))
 		{
