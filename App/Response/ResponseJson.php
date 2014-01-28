@@ -7,6 +7,8 @@
 
 namespace App\Response;
 
+use Joomla\Language\Text as JText;
+
 /**
  * Database model for the tracker application.
  *
@@ -58,7 +60,7 @@ class ResponseJson
 		}
 
 		// Check if we are dealing with an error.
-		if ($data instanceof Exception)
+		if ($data instanceof \Exception)
 		{
 			// Prepare the error response.
 			$this->error   = true;

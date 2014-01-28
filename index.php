@@ -10,12 +10,16 @@ set_time_limit(0);
  */
 
 // Define required paths
-define('JPATH_ROOT',   __DIR__);
-define('JPATH_APP_ROOT', __DIR__);
-define('JPATH_APP_ETC', JPATH_APP_ROOT . '/etc');
+define('JPATH_ROOT',  __DIR__);
+define('JPATH_INSTALLATION', dirname(__DIR__) . '/installer');
+define('JPATH_ADMINISTRATOR', dirname(__DIR__) . '/administrator');
+define('JPATH_SITE', dirname(__DIR__) . '/frontend');
+define('JPATH_APP_ETC', JPATH_INSTALLATION . '/etc');
+define('JPATH_APP_TEMPLATE', JPATH_INSTALLATION . '/template');
+// root paths
 define('JPATH_ETC', dirname(__DIR__) . '/etc');
-define('JPATH_TEMPLATE', JPATH_APP_ROOT . '/template');
 define('JPATH_VENDOR', dirname(__DIR__) . '/vendor');
+
 
 // Load the Composer autoloader
 $vendor_autoload = JPATH_VENDOR . '/autoload.php';

@@ -16,7 +16,7 @@ use Joomla\Session\Session;
 */
 class SetupController extends DefaultController
 {
-	public function configuration()
+	private function validate()
 	{
 		$this->getApplication()->checkToken();
 
@@ -32,6 +32,11 @@ class SetupController extends DefaultController
 
 		// Check the form
 		$model->checkForm($vName);
+	}
+	
+	public function configuration()
+	{
+		$this->validate();
 
 		// Redirect to the page.
 		$r = new \stdClass;
@@ -41,24 +46,21 @@ class SetupController extends DefaultController
 
 	public function database()
 	{
-		$this->getApplication()->checkToken();
-
-		// Get the input
-        $input = $this->getInput();
-
-        // view name
-        $vName   = $input->getWord('view', $this->defaultView);
-
-		// Get the setup model.
-		$mClass = '\\App\\Model\\SetupModel';
-		$model = new $mClass($this->getApplication(),$this->getInput());
-
-		// Check the form
-		$model->checkForm($vName);
+		$this->validate();
 
 		// Redirect to the page.
 		$r = new \stdClass;
 		$r->view = 'overview';
+		$this->getApplication()->sendJsonResponse($r);
+	}
+
+	public function overview()
+	{
+		$this->validate();
+
+		// Redirect to the page.
+		$r = new \stdClass;
+		$r->view = 'install';
 		$this->getApplication()->sendJsonResponse($r);
 	}
 }

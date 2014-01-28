@@ -29,7 +29,8 @@
 			</tr>
 		</tfoot>
 	</table>
-	<?php echo JHtml::_('form.token'); ?>
+	<input type="hidden" name="<?php echo $this->application->getFormToken(); ?>" value="1" />
+    <input type="hidden" name="view" value="install">
 </form>
 
 <script type="text/javascript">

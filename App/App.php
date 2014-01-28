@@ -14,6 +14,7 @@ use Joomla\DI\ContainerAwareInterface;
 use Joomla\Language\Language;
 use Joomla\Language\Text;
 use Joomla\Filesystem\Path;
+use Joomla\Filesystem\Folder;
 
 //@todo fix that
 class_alias('Joomla\Language\Text','JText');
@@ -128,7 +129,7 @@ final class App extends AbstractWebApplication implements ContainerAwareInterfac
             $router->setDefaultController('\\Controller\\DefaultController');
 
             $default_language = $this->getSession()->get('default.language', $this->getLanguage()->getDefault());
-            $this->getLanguage()->load('', JPATH_ROOT, $default_language);
+            $this->getLanguage()->load('', JPATH_INSTALLATION, $default_language);
             $this->getLanguage()->setLanguage($default_language);
 
             // Fetch the controller
@@ -139,13 +140,13 @@ final class App extends AbstractWebApplication implements ContainerAwareInterfac
             // render template
             $tmpl = $this->input->getCmd('tmpl', 'index');
 
-            if ($template_path = Path::find(array(JPATH_TEMPLATE), $tmpl.'.php')) {
+            if ($template_path = Path::find(array(JPATH_APP_TEMPLATE), $tmpl.'.php')) {
             } else {
-                $template_path = JPATH_TEMPLATE.'/index.php';
+                $template_path = JPATH_APP_TEMPLATE.'/index.php';
             }
             
             if (!is_file($template_path)) {
-                throw new Exception('Template not found');
+                throw new \Exception('Template not found');
             }
 
             ob_start();
@@ -177,7 +178,7 @@ final class App extends AbstractWebApplication implements ContainerAwareInterfac
     public function sendJsonResponse($response)
     {
         // Check if we need to send an error code.
-        if ($response instanceof Exception)
+        if ($response instanceof \Exception)
         {
             // Send the appropriate error code response.
             $this->setHeader('status', $response->getCode());
@@ -388,11 +389,84 @@ final class App extends AbstractWebApplication implements ContainerAwareInterfac
         return md5($this->get('secret') . $userId . $this->getSession()->getToken($forceNew));
     }
 
+    /**
+     * Validated Token
+     *
+     * @since   1.0
+     */
     public function checkToken($method = 'post')
     {
         $token = $this->getFormToken();
-        if (!$this->input->$method->get($token, '', 'alnum')) {
+        $token_value = $this->input->$method->get($token, '', 'alnum');
+        if (empty($token_value)) {
+
             $this->sendJsonResponse(new \Exception(Text::_('JINVALID_TOKEN'), 403));
         }
+    }
+
+    /**
+     * Returns the installed language files in the administrative and
+     * front-end area.
+     *
+     * @param   mixed  $db  JDatabaseDriver instance
+     *
+     * @return  array  Array with installed language packs in admin and site area
+     *
+     * @since   3.1
+     */
+    public function getLocaliseAdmin($db = false)
+    {
+        // Read the files in the admin area
+        $path = Language::getLanguagePath(JPATH_ADMINISTRATOR);
+        $langfiles['admin'] = Folder::folders($path);
+        if (is_bool($langfiles['admin'])) {
+            $langfiles['admin'] = array();
+        }
+        // Read the files in the site area
+        $path = Language::getLanguagePath(JPATH_SITE);
+        $langfiles['site'] = Folder::folders($path);
+        if (is_bool($langfiles['site'])) {
+            $langfiles['site'] = array();
+        }
+
+        if ($db)
+        {
+            $langfiles_disk = $langfiles;
+            $langfiles = array();
+            $langfiles['admin'] = array();
+            $langfiles['site'] = array();
+            $query = $db->getQuery(true)
+                ->select($db->quoteName(array('element','client_id')))
+                ->from($db->quoteName('#__extensions'))
+                ->where($db->quoteName('type') . ' = ' . $db->quote('language'));
+            $db->setQuery($query);
+            $langs = $db->loadObjectList();
+
+            foreach ($langs as $lang)
+            {
+                switch ($lang->client_id)
+                {
+                    // Site
+                    case 0:
+                        if (in_array($lang->element, $langfiles_disk['site']))
+                        {
+                            $langfiles['site'][] = $lang->element;
+                        }
+
+                        break;
+
+                    // Administrator
+                    case 1:
+                        if (in_array($lang->element, $langfiles_disk['admin']))
+                        {
+                            $langfiles['admin'][] = $lang->element;
+                        }
+
+                        break;
+                }
+            }
+        }
+
+        return $langfiles;
     }
 }

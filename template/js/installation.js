@@ -179,7 +179,7 @@ var Installation = function(_container, _base) {
 
         $.ajax({
             type : "POST",
-            url : baseUrl + '?task=Install' + task,
+            url : baseUrl + '?task=' + task,
             data : data,
             dataType : 'json'
         }).done(function(r) {
@@ -298,7 +298,7 @@ var Installation = function(_container, _base) {
 
         $.ajax({
             type : "POST",
-            url : baseUrl + '?task=removefolder',
+            url : baseUrl + '?task=installation.removefolder',
             data : data,
             dataType : 'json'
         }).done(function(r) {

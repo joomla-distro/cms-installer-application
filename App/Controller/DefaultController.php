@@ -111,7 +111,7 @@ class DefaultController extends AbstractController implements ContainerAwareInte
         // Register the templates paths for the view
         $paths = array();
 
-        $path = JPATH_TEMPLATE . '/' . $vName;
+        $path = JPATH_APP_TEMPLATE . '/' . $vName;
 
         if (is_dir($path))
         {

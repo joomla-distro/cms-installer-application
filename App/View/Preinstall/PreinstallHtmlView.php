@@ -11,6 +11,8 @@ class PreinstallHtmlView extends DefaultHtmlView
     {
         parent::__construct($app, $model, $paths);
 
-        
+        $this->form = $this->model->getForm('preinstall');
+		$this->options = $this->model->getPhpOptions();
+		$this->settings = $this->model->getPhpSettings();
     }
 }

@@ -11,7 +11,7 @@ class OverviewHtmlView extends DefaultHtmlView
     {
         parent::__construct($app, $model, $paths);
 
-        $this->form 		= $this->model->getForm('summary');
+        $this->form 		= $this->model->getForm('overview');
 		$this->phpoptions  	= $this->model->getPhpOptions();
 		$this->phpsettings 	= $this->model->getPhpSettings();
 		$this->options     	= $this->model->getOptions();

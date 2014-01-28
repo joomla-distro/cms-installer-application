@@ -17,15 +17,15 @@ class InstallHtmlView extends DefaultHtmlView
 		 * Prepare the tasks array
 		 * Note: The first character of the task *MUST* be capitalised or the application will not find the task
 		 */
-		$this->tasks[] = ($this->options['db_old'] == 'remove') ? 'Database_remove' : 'Database_backup';
-		$this->tasks[] = 'Database';
+		$this->tasks[] = ($this->options['db_old'] == 'remove') ? 'database.remove' : 'database.backup';
+		$this->tasks[] = 'database.install';
 
-		if ($this->options['sample_file'])
+		if (isset($this->options['sample_file']))
 		{
-			$this->tasks[] = 'Sample';
+			$this->tasks[] = 'database.installsampledata';
 		}
 
-		$this->tasks[] = 'Config';
+		$this->tasks[] = 'configuration.create';
 
 		if ($this->options['summary_email'])
 		{

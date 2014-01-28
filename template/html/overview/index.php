@@ -336,10 +336,10 @@
 			</table>
 		</div>
 	</div>
-
-	<input type="hidden" name="task" value="summary" />
+	<input type="hidden" name="<?php echo $this->application->getFormToken(); ?>" value="1" />
+	<input type="hidden" name="view" value="overview">
+	<input type="hidden" name="task" value="setup.overview" />
 </form>
-
 <script type="text/javascript">
 	jQuery('input[name="jform[summary_email]"]').each(function(index, el) {
         jQuery(el).on('click', function() {
