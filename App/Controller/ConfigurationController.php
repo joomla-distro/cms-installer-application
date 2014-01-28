@@ -4,9 +4,9 @@
  * @license GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace App\Controller;
+namespace Installer\Controller;
 
-use App\Controller\DefaultController;
+use Installer\Controller\DefaultController;
 
 /**
  * Configuration Controller class for the Application
@@ -24,13 +24,13 @@ class ConfigurationController extends DefaultController
 		//$app->checkToken();
 
 		// Get the setup model.
-		$model = new \App\Model\SetupModel($this->getApplication(),$this->getInput());
+		$model = new \Installer\Model\SetupModel($this->getApplication(),$this->getInput());
 
 		// Get the options from the session
 		$options = $model->getOptions();
 
 		// Get the database model.
-		$configuration = new \App\Model\ConfigurationModel($this->getApplication(),$this->getInput());
+		$configuration = new \Installer\Model\ConfigurationModel($this->getApplication(),$this->getInput());
 
     	// Attempt to setup the configuration.
 		$return = $configuration->setup($options);

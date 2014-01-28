@@ -4,9 +4,9 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace App;
+namespace Installer;
 
-use App\Service\ApplicationServiceProvider;
+use Installer\Service\ApplicationServiceProvider;
 use Joomla\Application\AbstractWebApplication;
 use Joomla\Controller\ControllerInterface;
 use Joomla\DI\Container;
@@ -19,8 +19,8 @@ use Joomla\Filesystem\Folder;
 //@todo fix that
 class_alias('Joomla\Language\Text','JText');
 
-use App\Router\AppRouter;
-use App\Response\ResponseJson;
+use Installer\Router\AppRouter;
+use Installer\Response\ResponseJson;
 
 use Joomla\Session\Session;
 use Joomla\Registry\Registry;
@@ -125,7 +125,7 @@ final class App extends AbstractWebApplication implements ContainerAwareInterfac
             }
 
             $router->addMaps($maps, true);
-            $router->setControllerPrefix('\\App');
+            $router->setControllerPrefix('\\Installer');
             $router->setDefaultController('\\Controller\\DefaultController');
 
             $default_language = $this->getSession()->get('default.language', $this->getLanguage()->getDefault());

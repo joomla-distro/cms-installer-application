@@ -4,7 +4,7 @@
 * @license GNU General Public License version 2 or later; see LICENSE.txt
 */
 
-namespace App\Controller;
+namespace Installer\Controller;
 
 use App\Controller\DefaultController;
 use Joomla\Session\Session;
@@ -27,7 +27,7 @@ class SetupController extends DefaultController
         $vName   = $input->getWord('view', $this->defaultView);
 
 		// Get the setup model.
-		$mClass = '\\App\\Model\\SetupModel';
+		$mClass = '\\Installer\\Model\\SetupModel';
 		$model = new $mClass($this->getApplication(),$this->getInput());
 
 		// Check the form

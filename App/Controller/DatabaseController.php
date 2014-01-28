@@ -4,9 +4,9 @@
 * @license GNU General Public License version 2 or later; see LICENSE.txt
 */
 
-namespace App\Controller;
+namespace Installer\Controller;
 
-use App\Controller\DefaultController;
+use Installer\Controller\DefaultController;
 
 /**
 * Database Controller class for the Application
@@ -24,13 +24,13 @@ class DatabaseController extends DefaultController
 		$app->checkToken();
 
 		// Get the setup model.
-		$model = new \App\Model\SetupModel($this->getApplication(),$this->getInput());
+		$model = new \Installer\Model\SetupModel($this->getApplication(),$this->getInput());
 
 		// Get the options from the session
 		$options = $model->getOptions();
 
 		// Get the database model.
-		$db = new \App\Model\DatabaseModel($this->getApplication(),$this->getInput());
+		$db = new \Installer\Model\DatabaseModel($this->getApplication(),$this->getInput());
 
 		// Attempt to create the database tables.
 		$return = $db->installSampleData($options);
@@ -65,13 +65,13 @@ class DatabaseController extends DefaultController
 		$app->checkToken();
 
 		// Get the setup model.
-		$model = new \App\Model\SetupModel($this->getApplication(),$this->getInput());
+		$model = new \Installer\Model\SetupModel($this->getApplication(),$this->getInput());
 
 		// Get the options from the session
 		$options = $model->getOptions();
 
 		// Get the database model.
-		$db = new \App\Model\DatabaseModel($this->getApplication(),$this->getInput());
+		$db = new \Installer\Model\DatabaseModel($this->getApplication(),$this->getInput());
 
 		// Attempt to create the database tables.
 		$return = $db->handleOldDatabase($options);
@@ -97,13 +97,13 @@ class DatabaseController extends DefaultController
 		$app->checkToken();
 
 		// Get the setup model.
-		$model = new \App\Model\SetupModel($this->getApplication(),$this->getInput());
+		$model = new \Installer\Model\SetupModel($this->getApplication(),$this->getInput());
 
 		// Get the options from the session
 		$options = $model->getOptions();
 
 		// Get the database model.
-		$db = new \App\Model\DatabaseModel($this->getApplication(),$this->getInput());
+		$db = new \Installer\Model\DatabaseModel($this->getApplication(),$this->getInput());
 
 		// Attempt to create the database tables.
 		$return = $db->createTables($options);

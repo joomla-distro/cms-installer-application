@@ -4,9 +4,9 @@
  * @license GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace App\Controller;
+namespace Installer\Controller;
 
-use App\Controller\DefaultController;
+use Installer\Controller\DefaultController;
 use Joomla\Filesystem\Folder;
 use Joomla\Language\Text as JText;
 

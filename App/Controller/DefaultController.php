@@ -4,13 +4,13 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace App\Controller;
+namespace Installer\Controller;
 
 use Joomla\Controller\AbstractController;
 use Joomla\DI\ContainerAwareInterface;
 use Joomla\DI\Container;
 use Joomla\Language\Language;
-use App\View\DefaultHtmlView;
+use Installer\View\DefaultHtmlView;
 
 /**
  * Default Controller class for the application
@@ -76,7 +76,7 @@ class DefaultController extends AbstractController implements ContainerAwareInte
 
         $input->set('view', $vName);
 
-        $base = '\\App';
+        $base = '\\Installer';
 
         $vClass = $base . '\\View\\' . ucfirst($vName) . '\\' . ucfirst($vName) . ucfirst($vFormat) . 'View';
         $mClass = $base . '\\Model\\' . ucfirst($vName) . 'Model';
@@ -96,9 +96,9 @@ class DefaultController extends AbstractController implements ContainerAwareInte
         // Make sure the view class exists, otherwise revert to the default
         if (!class_exists($vClass))
         {
-            $vClass = '\\App\\View\\Default' . ucfirst($vFormat) . 'View';
+            $vClass = '\\Installer\\View\\Default' . ucfirst($vFormat) . 'View';
             if (!class_exists($vClass)) {
-                $vClass = '\\App\\View\\DefaultHtmlView';
+                $vClass = '\\Installer\\View\\DefaultHtmlView';
 
                 // If there still isn't a class, panic.
                 if (!class_exists($vClass))

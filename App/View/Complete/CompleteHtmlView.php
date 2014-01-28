@@ -1,9 +1,9 @@
 <?php
 
-namespace App\View\Complete;
+namespace Installer\View\Complete;
 
-use App\App;
-use App\View\DefaultHtmlView;
+use Installer\App;
+use Installer\View\DefaultHtmlView;
 
 class CompleteHtmlView extends DefaultHtmlView
 {

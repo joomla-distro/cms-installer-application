@@ -5,9 +5,9 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace App\Model;
+namespace Installer\Model;
 
-use App\Model\DefaultModel;
+use Installer\Model\DefaultModel;
 
 use Joomla\Form\Form as JForm;
 use Joomla\Form\FormHelper as JFormHelper;

@@ -4,7 +4,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace App\Service;
+namespace Installer\Service;
 
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\View\Overview;
+namespace Installer\View\Overview;
 
-use App\App;
-use App\View\DefaultHtmlView;
+use Installer\App;
+use Installer\View\DefaultHtmlView;
 
 class OverviewHtmlView extends DefaultHtmlView
 {

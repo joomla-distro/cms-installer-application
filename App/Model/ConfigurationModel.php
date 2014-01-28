@@ -5,9 +5,9 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace App\Model;
+namespace Installer\Model;
 
-use App\Model\DefaultModel;
+use Installer\Model\DefaultModel;
 
 use Joomla\Utilities\ArrayHelper as JArrayHelper;
 use Joomla\Registry\Registry as JRegistry;
@@ -320,7 +320,7 @@ class ConfigurationModel extends DefaultModel
 		// Get a database object.
 		try
 		{
-			$db = \App\Helper\DatabaseHelper::getDBO($options->db_type, $options->db_host, $options->db_user, $options->db_pass, $options->db_name, $options->db_prefix);
+			$db = \Installer\Helper\DatabaseHelper::getDBO($options->db_type, $options->db_host, $options->db_user, $options->db_pass, $options->db_name, $options->db_prefix);
 		}
 		catch (\RuntimeException $e)
 		{

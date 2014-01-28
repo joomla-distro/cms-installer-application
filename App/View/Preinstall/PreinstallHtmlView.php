@@ -1,9 +1,9 @@
 <?php
 
-namespace App\View\Preinstall;
+namespace Installer\View\Preinstall;
 
-use App\App;
-use App\View\DefaultHtmlView;
+use Installer\App;
+use Installer\View\DefaultHtmlView;
 
 class PreinstallHtmlView extends DefaultHtmlView
 {

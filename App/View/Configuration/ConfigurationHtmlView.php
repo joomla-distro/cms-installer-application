@@ -1,9 +1,9 @@
 <?php
 
-namespace App\View\Configuration;
+namespace Installer\View\Configuration;
 
-use App\App;
-use App\View\DefaultHtmlView;
+use Installer\App;
+use Installer\View\DefaultHtmlView;
 
 class ConfigurationHtmlView extends DefaultHtmlView
 {

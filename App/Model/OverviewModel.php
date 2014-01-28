@@ -5,9 +5,9 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace App\Model;
+namespace Installer\Model;
 
-use App\Model\SetupModel;
+use Installer\Model\SetupModel;
 
 /**
  * Overview model for the tracker application.

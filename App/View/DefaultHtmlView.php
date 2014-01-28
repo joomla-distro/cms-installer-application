@@ -1,8 +1,8 @@
 <?php
 
-namespace App\View;
+namespace Installer\View;
 
-use App\App;
+use Installer\App;
 use Joomla\View\AbstractHtmlView;
 
 class DefaultHtmlView extends AbstractHtmlView

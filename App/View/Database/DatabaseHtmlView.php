@@ -1,9 +1,9 @@
 <?php
 
-namespace App\View\Database;
+namespace Installer\View\Database;
 
-use App\App;
-use App\View\DefaultHtmlView;
+use Installer\App;
+use Installer\View\DefaultHtmlView;
 
 class DatabaseHtmlView extends DefaultHtmlView
 {
