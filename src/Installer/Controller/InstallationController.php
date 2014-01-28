@@ -24,11 +24,11 @@ class InstallationController extends DefaultController
         $app->checkToken();
 
         // Check whether the folder still exists
-        if (!file_exists(JPATH_INSTALLATION))
+        if (!file_exists(JPATH_WEB.'/installation'))
         {
             $app->sendJsonResponse(new \Exception(JText::sprintf('INSTL_COMPLETE_ERROR_FOLDER_ALREADY_REMOVED'), 500));
         }
-        $return = Folder::delete(JPATH_INSTALLATION);
+        $return = Folder::delete(JPATH_WEB.'/installation');
         // If an error was encountered return an error.
         if (!$return)
         {
