@@ -326,6 +326,8 @@ class DatabaseModel extends DefaultModel
 			$schema = 'sql/' . $type . '/joomla.sql';
 		}
 
+		$schema = JPATH_ROOT .'/'. $schema;
+
 		// Check if the schema is a valid file
 		if (!is_file($schema))
 		{
@@ -340,7 +342,7 @@ class DatabaseModel extends DefaultModel
 		}
 
 		// Attempt to update the table #__schema.
-		$pathPart = JPATH_INSTALLATION . '/etc/sql/updates/';
+		$pathPart = JPATH_ROOT . '/etc/sql/updates/';
 
 		if ($type == 'mysqli' || $type == 'mysql')
 		{
@@ -527,7 +529,7 @@ class DatabaseModel extends DefaultModel
 			$type = 'sqlazure';
 		}
 
-		$data = JPATH_INSTALLATION . '/sql/' . $type . '/' . $options->sample_file;
+		$data = JPATH_ROOT . '/etc/sql/' . $type . '/' . $options->sample_file;
 
 		// Attempt to import the database schema if one is chosen.
 		if ($options->sample_file != '')
