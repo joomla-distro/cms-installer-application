@@ -6,14 +6,14 @@
 
 namespace JoomlaDistro\CmsInstallerApplication\Language;
 
-use Joomla\Language\Language;
+use Joomla\Language\Language as JLanguage;
 
 /**
  * Language class
  *
  * @since  1.0
  */
-class Language extends Language
+class Language extends JLanguage
 {
 	public static function exists($lang, $basePath = __DIR__)
 	{
