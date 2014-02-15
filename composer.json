@@ -13,10 +13,28 @@
         }
     ],
     "autoload": {
-        "psr-0": {"Installer": "src"}
+        "psr-4": [
+            {"JoomlaDistro\\CmsInstallerApplication\\": "src"},
+            {"JoomlaDistro\\CmsInstallerApplication\\Language\\": "language"}
+        ]
     },
     "require": {
         "joomla-distro/joomla-distro-core": "*",
-        "joomla-distro/joomla-jui": "*"
+        "joomla/application": "dev-master",
+        "joomla/router": "dev-master",
+        "joomla/di": "dev-master",
+        "joomla/database": "dev-master",
+        "joomla/model": "dev-master",
+        "joomla/form": "dev-master",
+        "joomla/router": "dev-master",
+        "joomla/view": "dev-master",
+        "joomla/controller": "dev-master",
+        "joomla/language": "dev-master",
+        "joomla/event": "dev-master",
+        "joomla/filesystem": "dev-master",
+        "joomla/crypt": "dev-master",
+        "joomla/registry": "dev-master",
+        "joomla/utilities": "dev-master",
+        "joomla/session": "dev-master"
     }
 }

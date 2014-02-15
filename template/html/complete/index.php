@@ -13,10 +13,7 @@
     </div>
     <div class="btn-toolbar">
         <div class="btn-group">
-            <a class="btn" href="<?php echo BASE_URL; ?>" title="<?php echo JText::_('JSITE'); ?>"><i class="icon-eye-open"></i> <?php echo JText::_('JSITE'); ?></a>
-        </div>
-        <div class="btn-group">
-            <a class="btn btn-primary" href="<?php echo BASE_URL; ?>administrator/" title="<?php echo JText::_('JADMINISTRATOR'); ?>"><i class="icon-lock icon-white"></i> <?php echo JText::_('JADMINISTRATOR'); ?></a>
+            <a class="btn" href="../" title="<?php echo JText::_('JSITE'); ?>"><i class="icon-eye-open"></i> <?php echo JText::_('JSITE'); ?></a>
         </div>
     </div>
     <div class="row-fluid">
