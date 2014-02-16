@@ -1,6 +1,6 @@
 {
     "name": "joomla-distro/cms-installer-application",
-    "type": "cms-application",
+    "type": "library",
     "license": "GPLv3",
     "description": "Joomla CMS Installer Application",
     "keywords": ["joomla", "installer", "application"],
@@ -17,8 +17,5 @@
             {"JoomlaDistro\\CmsInstallerApplication\\": "src"},
             {"JoomlaDistro\\CmsInstallerApplication\\Language\\": "language"}
         ]
-    },
-    "require": {
-        "joomla-distro/joomla-distro-core": "*"
     }
 }
