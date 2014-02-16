@@ -65,13 +65,13 @@ class DatabaseController extends DefaultController
 		$app->checkToken();
 
 		// Get the setup model.
-		$model = new \Installer\Model\SetupModel($this->getApplication(),$this->getInput());
+		$model = new \JoomlaDistro\CmsInstallerApplication\Model\SetupModel($this->getApplication(),$this->getInput());
 
 		// Get the options from the session
 		$options = $model->getOptions();
 
 		// Get the database model.
-		$db = new \Installer\Model\DatabaseModel($this->getApplication(),$this->getInput());
+		$db = new \JoomlaDistro\CmsInstallerApplication\Model\DatabaseModel($this->getApplication(),$this->getInput());
 
 		// Attempt to create the database tables.
 		$return = $db->handleOldDatabase($options);
@@ -97,13 +97,13 @@ class DatabaseController extends DefaultController
 		$app->checkToken();
 
 		// Get the setup model.
-		$model = new \Installer\Model\SetupModel($this->getApplication(),$this->getInput());
+		$model = new \JoomlaDistro\CmsInstallerApplication\Model\SetupModel($this->getApplication(),$this->getInput());
 
 		// Get the options from the session
 		$options = $model->getOptions();
 
 		// Get the database model.
-		$db = new \Installer\Model\DatabaseModel($this->getApplication(),$this->getInput());
+		$db = new \JoomlaDistro\CmsInstallerApplication\Model\DatabaseModel($this->getApplication(),$this->getInput());
 
 		// Attempt to create the database tables.
 		$return = $db->createTables($options);
