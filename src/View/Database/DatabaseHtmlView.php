@@ -2,7 +2,7 @@
 
 namespace JoomlaDistro\CmsInstallerApplication\View\Database;
 
-use JoomlaDistro\CmsInstallerApplication\App;\View\DefaultHtmlView;
+use JoomlaDistro\CmsInstallerApplication\View\DefaultHtmlView;
 
 class DatabaseHtmlView extends DefaultHtmlView
 {
